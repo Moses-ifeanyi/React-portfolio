@@ -7,28 +7,33 @@ import {
   faMedium,
   faStackOverflow,
 } from "@fortawesome/free-brands-svg-icons";
-import { Box, HStack } from "@chakra-ui/react";
+import { Box, HStack, Link, Icon } from "@chakra-ui/react";
 
 const socials = [
   {
     icon: faEnvelope,
-    url: "mailto: hello@example.com",
+    url: "mailto:mosesifeanyi19@gmail.com",
+    name: "Email",
   },
   {
     icon: faGithub,
-    url: "https://github.com",
+    url: "https://github.com/Moses-ifeanyi",
+    name: "GitHub",
   },
   {
     icon: faLinkedin,
-    url: "https://www.linkedin.com",
+    url: "https://www.linkedin.com/in/ifeanyi-moses-228572176/",
+    name: "LinkedIn",
   },
   {
     icon: faMedium,
     url: "https://medium.com",
+    name: "Medium",
   },
   {
     icon: faStackOverflow,
     url: "https://stackoverflow.com",
+    name: "Stack Overflow",
   },
 ];
 
@@ -65,10 +70,47 @@ const Header = () => {
         >
           <nav>
             {/* Add social media links based on the `socials` data */}
+            <HStack spacing={4}>
+              {socials.map((social, index) => (
+                <Link
+                  key={index}
+                  href={social.url}
+                  isExternal
+                  display="inline-block"
+                  fontSize="20px"
+                  _hover={{
+                    textDecoration: "none",
+                  }}
+                  target="_blank"
+                >
+                  <FontAwesomeIcon icon={social.icon} size="2x" />
+                </Link>
+              ))}
+            </HStack>
           </nav>
           <nav>
             <HStack spacing={8}>
-              {/* Add links to Projects and Contact me section */}
+              {/* Add links to Projects and Contact Me section */}
+              <Link
+                onClick={handleClick("projects")}
+                href="#projects-section"
+                cursor="pointer"
+                _hover={{
+                  textDecoration: "underline",
+                }}
+              >
+                Projects
+              </Link>
+              <Link
+                onClick={handleClick("contactme")}
+                href="#contactme-section"
+                cursor="pointer"
+                _hover={{
+                  textDecoration: "underline",
+                }}
+              >
+                Contact Me
+              </Link>
             </HStack>
           </nav>
         </HStack>
