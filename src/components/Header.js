@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import {
@@ -7,7 +7,7 @@ import {
   faMedium,
   faStackOverflow,
 } from "@fortawesome/free-brands-svg-icons";
-import { Box, HStack, Link, Icon } from "@chakra-ui/react";
+import { Box, HStack, Link } from "@chakra-ui/react";
 
 const socials = [
   {
@@ -49,8 +49,17 @@ const Header = () => {
     }
   };
 
+  // Create a ref for the Header component
+  const headerRef = useRef(null);
+
+  // Log a message when the component mounts
+  useEffect(() => {
+    console.log("Header component mounted");
+  }, []);
+
   return (
     <Box
+      ref={headerRef}
       position="fixed"
       top={0}
       left={0}
@@ -118,4 +127,5 @@ const Header = () => {
     </Box>
   );
 };
+
 export default Header;

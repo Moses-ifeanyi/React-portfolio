@@ -5,6 +5,7 @@ import FullScreenSection from "./FullScreenSection";
 const greeting = "Hello, I am Moses!";
 const bio1 = "A frontend developer";
 const bio2 = "specialized in React";
+const avatarImageUrl = "https://github.com/Moses-ifeanyi/React-portfolio/raw/main/avatar.jpg";
 
 const LandingSection = () => (
   <FullScreenSection
@@ -13,8 +14,11 @@ const LandingSection = () => (
     isDarkBackground
     backgroundColor="#2A4365"
   >
-    {/* Avatar */}
-    <Avatar size="2xl" name="Moses" src="/path-to-your-avatar-image.jpg" />
+    {/* Anchor tag to open the image in a new tab */}
+    <a href={avatarImageUrl} rel="noopener noreferrer">
+      {/* Avatar */}
+      <Avatar size="2xl" name="Moses" src={avatarImageUrl} />
+    </a>
 
     {/* VStack for text content */}
     <VStack spacing={4} mt={4} textAlign="center" color="white">
